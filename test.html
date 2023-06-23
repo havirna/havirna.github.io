@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html>    
 <head>
-        <title>Zenloop - Test</title>
-		<link rel="stylesheet" type="text/css" href="https://onlineservice.eins.de/powercommerce/eins/fo/portal/resources/css/de_DE/styles.css"/>
-    </head>
     <body>
-        <script>
-          document.addEventListener('zl.loaded', function() { 
-            setTimeout(function() {
-              var footer = document.getElementsByClassName("zl-footer")[0]; 
-              var text = document.createTextNode("In dieser Umfrage werden Ihre personenbezogene Daten verarbeitet. eins behält sich vor, Sie aufgrund Ihres Feedbacks p. E-Mail oder Telefon zu kontaktieren."); 
-              footer.prepend(text);  
-            }, 100);
-          });
-        </script>
         <script> 
             var Zenloop = window.Zenloop || {};
             Zenloop.recipient =
             {
 				identity: 'p.mueller@abc123.de',
-        		identity_type: 'e-mail',
+        		identity_type: 'custom',
                 properties:
                 {
                     system:  'Testsystem',
