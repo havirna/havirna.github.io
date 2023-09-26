@@ -11,8 +11,7 @@
   var Zenloop = window.Zenloop || {};
         Zenloop.recipient = {
             identity_type: 'custom',
-            identity: emailAddress,
-            is_a_test: true,
+            identity: 'virna.harri@zenloop.com',
             properties: {
                 user_id: userId,
                 order_id: orderId,
@@ -20,7 +19,8 @@
                 customer_segment: customerSegment,
                 voucher: hasVoucherCode,
                 order_value: orderValue,
-                "X-ReplaceFromAdress": emailAddress}};
+                "X-ReplaceFromAdress": emailAddress
+}};
   </script>
 
 <script id="zl-website-overlay-loader" async src="https://website-overlay.zenloop.com/loader/zenloop.load.min.js?survey=WlRFMFpXSTVZVFF0WmpkbE9TMDBZakV4TFRnNU9HWXROak16TlRFeFlqRmpZamho"></script>
