@@ -8,19 +8,21 @@
   
 <body>
   <script>
-  var Zenloop = window.Zenloop || {};
-        Zenloop.recipient = {
-            identity_type: 'custom',
+    var Zenloop = window.Zenloop || {};
+      Zenloop.recipient = {
             identity: 'virna.harri@zenloop.com',
+            identity_type: 'email',
+            first_name: 'Virna',
+            last_name: 'Harri',
             properties: {
-                user_id: userId,
-                order_id: orderId,
-                device_category: deviceCategory,
-                customer_segment: customerSegment,
-                voucher: hasVoucherCode,
-                order_value: orderValue,
-                "X-ReplaceFromAdress": emailAddress
-}};
+                user_id: 'userId',
+                order_id: 'orderId',
+                device_category: 'deviceCategory',
+                customer_segment: 'customerSegment',
+                voucher: 'hasVoucherCode',
+                order_value: 'orderValue',
+                "X-ReplaceFromAdress": 'emailAddress'}
+        };
   </script>
 
 <script id="zl-website-overlay-loader" async src="https://website-overlay.zenloop.com/loader/zenloop.load.min.js?survey=WlRFMFpXSTVZVFF0WmpkbE9TMDBZakV4TFRnNU9HWXROak16TlRFeFlqRmpZamho"></script>
