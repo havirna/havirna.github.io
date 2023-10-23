@@ -8,7 +8,25 @@
   
 <body>
 
-<script id="zl-website-overlay-loader" async src="https://website-overlay.zenloop.com/loader/zenloop-compatibility.load.min.js?survey=WXpRd09UaGpaakF0TlRCaFl5MDBZamxsTFRnNFlXUXRZMk14WlRObFpqVmxaalEx"></script>
+<script>
+var script = document.createElement('script');
+
+script.type = 'text/javascript';
+
+script.id = 'zl-website-overlay-loader'
+
+script.async = 'async';
+
+script.src = 'https://website-overlay.zenloop.com/loader/zenloop-compatibility.load.min.js?survey=TVdNd1lUVmxaV1F0WWpVMk1pMDBOVEZoTFdFMFlqTXRPVGs1WWpsbU1HWTFPREJo';
+  
+  document.getElementsByTagName('body')[0].appendChild(script);
+  
+  let observer = new MutationObserver((mutations) => {  mutations.forEach((mutation) => {    if (!mutation.addedNodes) return
+    for (let i = 0; i < mutation.addedNodes.length; i++) {          document.getElementsByClassName("zl-score zl-score-numbers zl-score-template-squares zl-promoter")[0].click();  
+      let node = mutation.addedNodes[i]    }  })})
+observer.observe(document.body, {    childList: true  , subtree: true  , attributes: false  , characterData: false})
+
+</script>
 
 
 </body>
