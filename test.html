@@ -1,22 +1,9 @@
-<html>
-<head>
-<title>TEST SUPPORT</title>
-</head>
-<meta http-equiv='cache-control' content='no-cache'> 
-<meta http-equiv='expires' content='0'> 
-<meta http-equiv='pragma' content='no-cache'>
-  
-<body>
-
 <script>    
 var script = document.createElement('script');    
 script.type = 'text/javascript';    
 script.id = 'zl-website-overlay-loader';    
 script.async = 'async';    
-script.src = 'https://zenloop-website-overlay-production.s3.amazonaws.com/loader/zenloop-compatibility.load.min.js?survey=<script id="zl-website-overlay-loader" async src="https://website-overlay.zenloop.com/loader/zenloop-compatibility.load.min.js?survey=T1RnME5qSXlZMkl0TURsak9TMDBNVFpqTFdFMVpqa3RNbU5pWW1RMVkySmtZV05p'
+script.src = 'https://zenloop-website-overlay-production.s3.amazonaws.com/loader/zenloop-compatibility.load.min.js?survey=T1RnME5qSXlZMkl0TURsak9TMDBNVFpqTFdFMVpqa3RNbU5pWW1RMVkySmtZV05p';    
 document.getElementsByTagName('body')[0].appendChild(script);        
-let observer = new MutationObserver((mutations) => {    mutations.forEach((mutation) => {        if (!mutation.addedNodes) return        for (let i = 0; i < mutation.addedNodes.length; i++) {                    document.getElementsByClassName("zl-input zl-textarea")[0].required = true                        let node = mutation.addedNodes[i]        }    })})observer.observe(document.body, {        childList: true,        subtree: true,        attributes: false,        characterData: false    })     
-</script>
-</body>
-  
-</html> 
+let observer = new MutationObserver((mutations) => {    mutations.forEach((mutation) => {        if (!mutation.addedNodes) return        for (let i = 0; i < mutation.addedNodes.length; i++) { 
+  document.getElementsByClassName("zl-input zl-textarea")[0].required = true                        let node = mutation.addedNodes[i]        }    })})observer.observe(document.body, {        childList: true,        subtree: true,        attributes: false,        characterData: false    })     
