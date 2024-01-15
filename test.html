@@ -1,5 +1,5 @@
 <script>
-  const Zenloop = window.Zenloop || {};
+  const Zenloop = sandboxed.window.Zenloop || {};
   Zenloop.recipient = {
     identity: 'test@example.com',
     identity_type: 'email',
@@ -13,28 +13,27 @@
 </script>
 
 <script>
-  const script = document.createElement('script');
+  const script = sandboxed.document.createElement('script');
   script.type = 'text/javascript';
   script.id = 'zl-website-overlay-loader';
   script.async = true;
-	
-  script.src = 'https://zenloop-website-overlay-production.s3.amazonaws.com/loader/zenloop-compatibility.load.min.js?survey=WWpka056RXdNak10TURkbVlTMDBPVFl4TFdJd01EUXRPR1l3TmpVMU1XWmxaV00z';
-  document.getElementsByTagName('body')[0].appendChild(script);
+  script.src = 'https://zenloop-website-overlay-production.s3.amazonaws.com/loader/zenloop-compatibility.load.min.js?survey=WkRFMk16SmlPVGt0WlRnNFlpMDBNek01TFRreFltTXRPRGMxWWprek1HSmpNR0Zq';
+  sandboxed.document.querySelector('body').appendChild(script);
   
-  const observer = new MutationObserver(mutations => {
+  const observer = new sandboxed.MutationObserver(mutations => {
     mutations.forEach(mutation => {
       if (!mutation.addedNodes) return;
 
       for (const node of mutation.addedNodes) {
-        const scoreElement = document.querySelector(".zl-highlight-score");
+        const scoreElement = sandboxed.document.querySelector(".zl-highlight-score");
         if (scoreElement && scoreElement.innerHTML > -1 && scoreElement.innerHTML < 7) {
-          document.querySelector(".zl-input.zl-textarea").required = true;
+          sandboxed.document.querySelector(".zl-input.zl-textarea").required = true;
         }
       }
     });
   });
 
-  observer.observe(document.body, {
+  observer.observe(sandboxed.document.body, {
     childList: true,
     subtree: true
   });
