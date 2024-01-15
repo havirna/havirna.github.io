@@ -1,16 +1,41 @@
 <script>
-  var Zenloop = window.Zenloop || {};
+  const Zenloop = window.Zenloop || {};
   Zenloop.recipient = {
     identity: 'test@example.com',
     identity_type: 'email',
     first_name: 'John',
     last_name: 'Doe',
     properties: {
-		color: ['red', 'blue'],
-      	height: [100, 200, 300]
+      color: 'red',
+      height: 100
     }
   };
 </script>
 
+<script>
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.id = 'zl-website-overlay-loader';
+  script.async = true;
+	
+  script.src = 'https://zenloop-website-overlay-production.s3.amazonaws.com/loader/zenloop-compatibility.load.min.js?survey=WWpka056RXdNak10TURkbVlTMDBPVFl4TFdJd01EUXRPR1l3TmpVMU1XWmxaV00z';
+  document.getElementsByTagName('body')[0].appendChild(script);
+  
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      if (!mutation.addedNodes) return;
 
-<script id="zl-website-overlay-loader" async src="https://website-overlay.zenloop.com/loader/zenloop.load.min.js?survey=WW1JMk1XVmxZVGt0TnpJNE1pMDBPRFZtTFRoa056RXRPRGxrTlRRMVpqQXpNR05r"></script>
+      for (const node of mutation.addedNodes) {
+        const scoreElement = document.querySelector(".zl-highlight-score");
+        if (scoreElement && scoreElement.innerHTML > -1 && scoreElement.innerHTML < 7) {
+          document.querySelector(".zl-input.zl-textarea").required = true;
+        }
+      }
+    });
+  });
+
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+</script>
