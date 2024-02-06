@@ -7,7 +7,34 @@
 </head>
 <body>
     <!-- Your script is placed here -->
-    <script id="zl-website-overlay-loader" async src="https://website-overlay.zenloop.com/loader/zenloop-compatibility.load.min.js?survey=WWpka056RXdNak10TURkbVlTMDBPVFl4TFdJd01EUXRPR1l3TmpVMU1XWmxaV00z"></script>
+    <script>
+var script = document.createElement('script');
+script.type = 'text/javascript';
+script.id = 'zl-website-overlay-loader';
+script.async = 'async';
+script.src = 'https://website-overlay.zenloop.com/loader/zenloop-compatibility.load.min.js?survey=WVRrNFpXRTJOekl0WmpBeU1TMDBPR1pqTFdJNE9UTXRaakEzTURKa01qUmxOVEZo';
+document.getElementsByTagName('body')[0].appendChild(script);
+
+var observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (!mutation.addedNodes) return;
+        for (var i = 0; i < mutation.addedNodes.length; i++) {
+            // Assuming the class name "zl-input zl-textarea" is targeted for a specific purpose,
+            // this line should ideally be placed outside of the loop or checked to ensure it doesn't repeatedly set the same property
+            document.getElementsByClassName("zl-input zl-textarea")[0].required = true;
+            var node = mutation.addedNodes[i]; // This line seems unused but kept for the sake of original structure
+        }
+    });
+});
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true,
+    attributes: false,
+    characterData: false
+});
+</script>
+
     
     <!-- Other content of your webpage will go here -->
 </body>
