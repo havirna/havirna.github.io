@@ -2,8 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script type="module" src="https://surveys-renderer-frontend.vercel.app/assets/embeddedSurvey.js"></script></head>
+    <style>
+        body {
+            background-color: white;
+        }
+        button {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script type="module" src="https://surveys-renderer-frontend.vercel.app/assets/embeddedSurvey.js"></script>
+</head>
 <body>
-    <!-- Your script is placed here -->
-    <zenloop-embedded-survey orgid="2811" surveyid="157" /></body>    
+    <button id="button1">Button 1</button>
+
+    <zenloop-embedded-survey orgid="2811" surveyid="157"></zenloop-embedded-survey>
+
+    <button id="button2">Button 2</button>
+</body>
 </html>
