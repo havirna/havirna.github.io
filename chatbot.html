@@ -1,0 +1,47 @@
+
+<!-- In your <head> tag -->
+<script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
+<style>
+  #webchat .bpWebchat {
+    position: unset;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  #webchat .bpFab {
+    display: none;
+  }
+</style>
+
+<!-- Put this on your page BEFORE the script below -->
+<div id="webchat" style="width: 500px; height: 500px;"></div>
+
+<!-- In your <body> tag -->
+<script>
+  window.botpress.on("webchat:ready", () => {
+    window.botpress.open();
+  });
+  window.botpress.init({
+  "botId": "dec3c717-4951-4fc4-9728-1a6928fea614",
+  "configuration": {
+    "website": {},
+    "email": {},
+    "phone": {},
+    "termsOfService": {
+      "title": "Terms of service",
+      "link": "https://www.zenloop.com/en/legal/terms-of-service/"
+    },
+    "privacyPolicy": {},
+    "color": "#0b55cc",
+    "variant": "soft",
+    "themeMode": "light",
+    "fontFamily": "inter",
+    "radius": 3,
+    "showPoweredBy": true
+  },
+  "clientId": "3f858a1a-efe7-4a2e-aed9-74687ff42157",
+  "selector": "#webchat"
+});
+</script>
