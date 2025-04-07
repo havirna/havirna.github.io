@@ -1,4 +1,5 @@
-
+<html lang="en">
+<head>
 <!-- In your <head> tag -->
 <script src="https://cdn.botpress.cloud/webchat/v2.3/inject.js"></script>
 <style>
@@ -17,7 +18,9 @@
 
 <!-- Put this on your page BEFORE the script below -->
 <div id="webchat" style="width: 500px; height: 500px;"></div>
+</head>
 
+  <body>
 <!-- In your <body> tag -->
 <script>
   window.botpress.on("webchat:ready", () => {
@@ -45,3 +48,4 @@
   "selector": "#webchat"
 });
 </script>
+    </body>
