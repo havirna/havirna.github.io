@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zensurvey Embedded Survey</title>
     <script type="module" src="https://zenresponses.zenloop.com/assets/embeddedSurvey.js"></script>
-
 </head>
+<body>
+    <script>
+        // Set up recipient information for the survey
+        window.Zenloop_Survey_Recipient = {
+            identity: 'user123@company.com',
+            identity_type: 'email',
+            first_name: 'John',
+            last_name: 'Doe',
+            properties: {
+                account_tier: 'enterprise',
+                region: 'EMEA',
+                active_features: 'api,analytics'
+            }
+        };
+    </script>
 
-    <body>
-
-
-       <script>
-           window.Zenloop_Survey_Recipient = {
-identity: 'user123@company.com',
-identity_type: 'custom',
-first_name: 'John',
-last_name: 'Doe',
-properties: {
-account_tier: ['enterprise'],
-region: ['EMEA'],
-active_features: ['api', 'analytics']
-}
-};
-           </script>
-
-        <zenloop-embedded-survey orgid="3899" surveyid="1461" />
-    
-
-
+    <!-- Embedded survey widget -->
+    <zenloop-embedded-survey 
+        orgid="3899" 
+        surveyid="1461"
+        theme="default">
+    </zenloop-embedded-survey>
 </body>
 </html>
