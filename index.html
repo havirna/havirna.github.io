@@ -11,9 +11,236 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script type="module" src="https://zenresponses.zenloop.com/embed-website-overlay.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    :root {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: #14213d;
+      background: #f8f9fb;
+    }
+    body {
+      margin: 0;
+      line-height: 1.6;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: #14213d;
+      color: #fff;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    }
+    header nav a {
+      margin-right: 1.5rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    section {
+      padding: 5rem 10vw;
+      min-height: 100vh;
+    }
+    section:nth-child(even) {
+      background: #ffffff;
+    }
+    section:nth-child(odd) {
+      background: #e9eff7;
+    }
+    .hero {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .cards {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 12px 24px rgba(20, 33, 61, 0.12);
+    }
+    .cta {
+      text-align: center;
+      padding: 6rem 10vw;
+      background: linear-gradient(135deg, #fca311, #f26419);
+      color: #fff;
+    }
+    footer {
+      padding: 3rem 10vw;
+      background: #14213d;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .modal-toggle {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #fca311;
+      color: #14213d;
+      border-radius: 999px;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      font-weight: bold;
+    }
+    #test-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 33, 61, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    #test-modal.open {
+      display: flex;
+    }
+    #test-modal .dialog {
+      width: min(640px, 90vw);
+      background: #fff;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+    }
+    .spacer {
+      height: 120vh;
+      background: linear-gradient(180deg, rgba(20, 33, 61, 0) 0%, rgba(20, 33, 61, 0.08) 100%);
+    }
+  </style>
 </head>
     <body>
         <h3>just a website bruh</h3>
+        <body>
+  <header>
+    <strong>Scroll QA Playground</strong>
+    <nav>
+      <a href="#welcome">Intro</a>
+      <a href="#features">Features</a>
+      <a href="#stories">Stories</a>
+      <a href="#cta">Call to Action</a>
+    </nav>
+  </header>
+
+  <section id="welcome">
+    <div class="hero">
+      <div>
+        <h1>Welcome to the Scroll Test Page</h1>
+        <p>
+          Trigger your Zenloop overlay on this page and make sure scroll-lock is reversed when the widget closes.
+          The sticky header and alternating sections make it obvious when body overflow styles persist.
+        </p>
+        <a href="#!" class="modal-toggle" id="open-modal">Open dummy modal</a>
+      </div>
+      <div>
+        <img src="https://picsum.photos/520/360" alt="Placeholder" style="width:100%; border-radius:16px;">
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2>Scrollable Content Blocks</h2>
+    <p>
+      Each feature card below is long enough to generate scroll depth. Run the survey once, close it, then scroll
+      back up—if the page feels stuck, your cleanup logic isn’t firing.
+    </p>
+    <div class="cards">
+      <div class="card">
+        <h3>01. Infinite Scroll</h3>
+        <p>
+          Long, descriptive text that keeps the page tall. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed volutpat lacinia leo, in molestie nisl laoreet vel. Phasellus id ipsum ac ipsum congue faucibus.
+        </p>
+        <p>
+          Maecenas a porttitor nisl. Nullam posuere, tortor ac sodales tincidunt, libero massa luctus dui, eget vestibulum
+          turpis leo non mauris.
+        </p>
+      </div>
+      <div class="card">
+        <h3>02. Sticky Layout</h3>
+        <p>
+          This section is here to help confirm that sticky elements regain their default positioning after the overlay unmounts.
+          No `position: fixed` residue should survive.
+        </p>
+      </div>
+      <div class="card">
+        <h3>03. Touch Scroll</h3>
+        <p>
+          Test on mobile or with device emulation: after closing Zenloop, the body should respond to swipe gestures immediately.
+          We strip `touch-action: none` during cleanup to ensure that.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+  <section id="stories">
+    <h2>Customer Stories</h2>
+    <p>
+      Simulated testimonials to extend the page:
+    </p>
+    <blockquote>
+      “Our scroll-jacking bug disappeared the moment we patched the overlay cleanup routine.”
+    </blockquote>
+    <blockquote>
+      “Even during SPA navigation the survey clears out correctly. No more frozen dashboards.”
+    </blockquote>
+    <blockquote>
+      “QA loved having this sandbox page; we caught multiple regressions before they shipped.”
+    </blockquote>
+  </section>
+
+  <section id="cta" class="cta">
+    <h2>Run the Survey Overlay</h2>
+    <p>
+      Trigger the survey now, close it, navigate around, and reload the page to confirm the scroll-lock manager behaves.
+    </p>
+    <p>
+      Pro tip: open Developer Tools → Elements and watch `<body>` and `<html>`—the `overflow` styles should toggle on open and disappear on close.
+    </p>
+  </section>
+
+  <footer>
+    <p>Need more height? Duplicate sections or adjust `.spacer` height to exaggerate scroll distance.</p>
+  </footer>
+
+  <div id="test-modal">
+    <div class="dialog">
+      <h2>Dummy Modal</h2>
+      <p>
+        Use this to double-check that your modal interactions don’t clash with the survey’s scroll handling.
+      </p>
+      <button id="close-modal">Close modal</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('test-modal');
+      var openBtn = document.getElementById('open-modal');
+      var closeBtn = document.getElementById('close-modal');
+
+      function openModal(evt) {
+        evt.preventDefault();
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function (evt) {
+        if (evt.target === modal) { closeModal(); }
+      });
+    })();
+  </script>
+</body>
+</html>
     </body>
     <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W536CS86"
